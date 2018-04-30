@@ -4,7 +4,7 @@ using System.Text;
 using HashtagMediaRetriever.src.config;
 
 namespace HashtagMediaRetriever.src.products {
-    abstract class SocialMediaPlatform {
+    public abstract class SocialMediaPlatform {
 		protected string Name { get; set; }
 		protected string Hashtag { get; set; }
 		protected Dictionary<int, Media> Media { get; set; }

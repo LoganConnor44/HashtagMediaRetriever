@@ -5,7 +5,7 @@ using Tweetinvi;
 using HashtagMediaRetriever.src.config;
 
 namespace HashtagMediaRetriever.src.products {
-    class Twitter : SocialMediaPlatform {
+    public class Twitter : SocialMediaPlatform {
 		public Twitter() {
 			this.Name = "twitter";
 			this.Authentication = new TwitterCredentials();
