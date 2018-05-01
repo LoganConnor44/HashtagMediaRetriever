@@ -9,5 +9,12 @@ namespace HashtagMediaRetrieverTests {
 			var twitter = new Twitter();
 			Assert.Equal(typeof(Twitter), twitter.GetType());
 		}
+
+		[Fact]
+		public void TestReturnString() {
+			var twitter = new Twitter();
+			var results = twitter.GetSearchFor("#InfinityWar");
+			Assert.Equal(typeof(string), results.GetType());
+		}
     }
 }
