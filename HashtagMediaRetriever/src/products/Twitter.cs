@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using Tweetinvi;
 using HashtagMediaRetriever.src.config;
-using Tweetinvi.Parameters;
-using Tweetinvi.Models;
 
 namespace HashtagMediaRetriever.src.products {
     public class Twitter : SocialMediaPlatform {
 
 		public Twitter() {
 			this.Name = "twitter";
-			this.Authentication = new config.TwitterCredentials();
+			this.Authentication = new TwitterCredentials();
 			var appCreds = Auth.SetApplicationOnlyCredentials(
 				this.Authentication.Credentials["TWITTER_KEY"],
 				this.Authentication.Credentials["TWITTER_SECRET"],
