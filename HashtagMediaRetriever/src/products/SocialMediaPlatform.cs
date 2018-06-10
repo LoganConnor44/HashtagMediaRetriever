@@ -9,5 +9,6 @@ namespace HashtagMediaRetriever.src.products {
 		protected string Hashtag { get; set; }
 		protected Dictionary<int, Media> Media { get; set; }
 		protected ICredentials Authentication { get; set; }
+        public List<Memento> Mementos { get; set; }
     }
 }
