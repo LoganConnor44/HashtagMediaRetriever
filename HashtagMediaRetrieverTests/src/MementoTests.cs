@@ -7,12 +7,33 @@ using System.Linq;
 namespace HashtagMediaRetrieverTests.src {
     public class MementoTests {
 
+        /// <summary>
+        /// Retrieves tweets that contain media from a defined hashtag.
+        /// </summary>
+        /// <param name="hashtag"></param>
+        /// <returns></returns>
+        public IEnumerable<Tweetinvi.Models.ITweet> SetupCreateMedia(string hashtag) {
+            var twitter = new Twitter();
+            var tweets = twitter.GetSearchFor(hashtag);
+            return twitter.GetTweetsWithMedia(tweets);
+        }
+
+        /// <summary>
+        /// Verify that mementos are being created correctly.
+        /// 
+        /// Setup:
+        /// * Create a list of Memento
+        /// * Get tweets that contain media
+        /// 
+        /// Test:
+        /// * Iterate through the media and create a memento for each
+        /// * The list created is of type Memento
+        /// * The list has memento objects
+        /// </summary>
         [Fact]
         public void TestCreateMemento() {
             List<Memento> mementos = new List<Memento>();
-            var twitter = new Twitter();
-            var tweets = twitter.GetSearchFor("#InfinityWar");
-            var mediaOnly = twitter.GetTweetsWithMedia(tweets);
+            var mediaOnly = this.SetupCreateMedia("#InfinityWar");
 
             foreach (Tweetinvi.Models.ITweet tweet in mediaOnly) {
                 var memento = new Memento(tweet);
