@@ -72,6 +72,27 @@ namespace HashtagMediaRetrieverTests.src {
                     }
                 }
             }
+
+            foreach(var item in typesOfMedia) {
+                Assert.Contains(
+                    item,
+                    typesOfMedia2
+                );
+            }
+            foreach(var item in mediaUrl2) {
+                Assert.DoesNotContain(
+                    item,
+                    mediaUrl
+                );
+            }
+            Assert.Equal(
+                typesOfMedia.Count(),
+                typesOfMedia2.Count()
+            );
+            Assert.Equal(
+                mediaUrl.Count(),
+                mediaUrl2.Count()
+            );
         }
     }
 }
