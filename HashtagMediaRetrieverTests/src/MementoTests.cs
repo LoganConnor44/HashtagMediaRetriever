@@ -65,7 +65,7 @@ namespace HashtagMediaRetrieverTests.src {
             List<string> typesOfMedia2 = new List<string>();
             List<string> mediaUrl2 = new List<string>();
             foreach (var memento in twitter.Mementos) {
-                foreach (var mem in memento.memories) {
+                foreach (var mem in memento.Memories) {
                     if (mem.mediaType.ToLower() != "photo" && !typesOfMedia2.Contains(mem.mediaType)) {
                         typesOfMedia2.Add(mem.mediaType);
                         mediaUrl2.Add(mem.url);

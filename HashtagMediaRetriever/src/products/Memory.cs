@@ -7,7 +7,7 @@ namespace HashtagMediaRetriever.src.products {
     /// <summary>
     /// A class to define a Media object that can originate from any social media platform.
     /// </summary>
-    public class Media {
+    public class Memory {
 
         /// <summary>
         /// An id that is set by the media entity itself.
@@ -16,6 +16,9 @@ namespace HashtagMediaRetriever.src.products {
         /// </summary>
         /// <value></value>
         public long? id { get; set; }
+
+        public int MementoId { get; set; }
+        public Memento Memento { get; set; }
 
         /// <summary>
         /// The direct url for a media entity.

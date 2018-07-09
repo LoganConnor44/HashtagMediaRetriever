@@ -11,30 +11,32 @@ namespace HashtagMediaRetriever.src.products {
     /// </summary>
     public class Memento {
 
+        public int Id { get; set; }
+
         /// <summary>
         /// Any text associated with a Memento.
         /// </summary>
-        public string comment;
+        public string Comment { get; set; }
 
         /// <summary>
         /// A list of media that are associated with a Memento.
         /// </summary>
-        public List<Media> memories;
+        public List<Memory> Memories { get; set; }
 
         /// <summary>
         /// The person a Memento belongs to.
         /// </summary>
-        public string owner;
+        public string Owner { get; set; }
 
         /// <summary>
         /// The social media a Memento was created from.
         /// </summary>
-        public string type;
+        public string Type { get; set; }
 
         /// <summary>
         /// The date of the Memento.
         /// </summary>
-        public DateTime creation;
+        public DateTime Creation { get; set; }
 
         /// <summary>
         /// The constructor for a Memento created by Twitter.
@@ -47,13 +49,13 @@ namespace HashtagMediaRetriever.src.products {
         /// </summary>
         /// <param name="tweet"></param>
         public Memento(ITweet tweet) {
-            this.owner = tweet.CreatedBy.Name;
-            this.comment = tweet.FullText;
-            this.type = "twitter";
-            this.memories = new List<Media>();
+            this.Owner = tweet.CreatedBy.Name;
+            this.Comment = tweet.FullText;
+            this.Type = "twitter";
+            this.Memories = new List<Memory>();
 
             foreach (MediaEntity media in tweet.Media) {
-                this.memories.Add(this.GetMemory(media));
+                this.Memories.Add(this.GetMemory(media));
             }
         }
 
@@ -66,8 +68,8 @@ namespace HashtagMediaRetriever.src.products {
         /// </summary>
         /// <param name="media"></param>
         /// <returns></returns>
-        private Media GetMemory(MediaEntity media) {
-            var tempMemory = new Media() {
+        private Memory GetMemory(MediaEntity media) {
+            var tempMemory = new Memory() {
                 id = media.Id,
                 mediaType = media.MediaType
             };
